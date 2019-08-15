@@ -12,6 +12,7 @@ module.exports = ({ express }) => {
    */
   routes.get("/wait-times", async (req, res) => {
     try {
+      console.log("requesting");
       const rideTimes = await DisneylandResortMagicKingdom.GetWaitTimes();
       return res.json(rideTimes);
     } catch (e) {
