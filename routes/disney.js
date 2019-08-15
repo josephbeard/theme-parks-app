@@ -37,13 +37,13 @@ router.get("/opening-times", async (req, res) => {
  * @apiDescription Get ride wait times.
  * @apiGroup Disneyland
  */
-router.get("/wait-times", (req, res) => {
+router.get("/wait-times", async (req, res) => {
   try {
     console.log("request recieved");
-    const disneylandTimes = await Disneyland.GetWaitTimes()
-    const caTimes = await CaliforniaAdventure.GetWaitTimes()
+    const disneylandTimes = await Disneyland.GetWaitTimes();
+    const caTimes = await CaliforniaAdventure.GetWaitTimes();
     console.log("ride times found");
-    const allTimes = disneylandTimes.concat(caTimes)
+    const allTimes = disneylandTimes.concat(caTimes);
     return res.json(allTimes);
   } catch (error) {
     console.error(error);
