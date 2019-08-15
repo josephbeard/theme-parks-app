@@ -2,8 +2,10 @@ const express = require("express");
 const router = express.Router();
 
 const Themeparks = require("themeparks");
-Themeparks.Settings.CacheWaitTimesLength = 60;
-Themeparks.Settings.DefaultCacheLength = 60;
+console.log(Themeparks.Settings);
+Themeparks.Settings.CacheWaitTimesLength = 1;
+Themeparks.Settings.DefaultCacheLength = 1;
+console.log(Themeparks.Settings);
 
 const DisneylandResortMagicKingdom = new Themeparks.Parks.DisneylandResortMagicKingdom();
 
