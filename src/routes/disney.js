@@ -3,7 +3,7 @@ module.exports = ({ express }) => {
   const Themeparks = require("themeparks");
   Themeparks.Settings.DefaultCacheLength = 5;
   Themeparks.Settings.CacheOpeningTimesLength = 5;
-  const DisneyWorldMagicKingdom = new Themeparks.Parks.DisneyWorldMagicKingdom();
+  const DisneyWorldMagicKingdom = new Themeparks.Parks.WaltDisneyWorldMagicKingdom();
 
   /**
    * @api {get} /wait-times Wait Times
