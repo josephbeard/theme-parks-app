@@ -14,7 +14,17 @@ const DisneylandResortMagicKingdom = new Themeparks.Parks.DisneylandResortMagicK
  * @apiDescription Get ride wait times.
  * @apiGroup Disneyland
  */
-router.get("/wait-times", async (req, res) => {
+router.get("/test", (req, res) => {
+  console.log("request recieved");
+  return res.send("working");
+});
+
+/**
+ * @api {get} /wait-times Wait Times
+ * @apiDescription Get ride wait times.
+ * @apiGroup Disneyland
+ */
+router.get("/wait-times", (req, res) => {
   console.log("request recieved");
   DisneylandResortMagicKingdom.GetWaitTimes()
     .then(rideTimes => {
