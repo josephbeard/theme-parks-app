@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Theme Parks App",
   "engines": {
-    "node": "10.3.0"
+    "node": "^10.0"
   },
   "main": "src/index.js",
   "scripts": {
