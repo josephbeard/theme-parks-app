@@ -1,8 +1,8 @@
 try {
   const express = require("express");
-  const disney = require("./routes/disney");
-
   const app = express();
+
+  const disney = require("./routes/disney");
 
   // Serving static files from "public" folder
   app.use(express.static("public"));
