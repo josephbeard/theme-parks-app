@@ -14,6 +14,7 @@ module.exports = ({ express }) => {
     try {
       console.log("requesting");
       const rideTimes = await DisneylandResortMagicKingdom.GetWaitTimes();
+      console.log({ rideTimes });
       return res.json(rideTimes);
     } catch (e) {
       console.error(e);
