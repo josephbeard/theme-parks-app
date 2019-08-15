@@ -38,16 +38,17 @@ router.get("/opening-times", async (req, res) => {
  * @apiGroup Disneyland
  */
 router.get("/wait-times", (req, res) => {
-  console.log("request recieved");
-  DisneylandResortMagicKingdom.GetWaitTimes()
-    .then(rideTimes => {
-      console.log("ride times found");
-      return res.json(rideTimes);
-    })
-    .catch(error => {
-      console.error(error);
-      return res.status(500).send("error");
-    });
+  try {
+    console.log("request recieved");
+    const disneylandTimes = await Disneyland.GetWaitTimes()
+    const caTimes = await CaliforniaAdventure.GetWaitTimes()
+    console.log("ride times found");
+    const allTimes = disneylandTimes.concat(caTimes)
+    return res.json(allTimes);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send("error");
+  }
 });
 
 module.exports = router;
