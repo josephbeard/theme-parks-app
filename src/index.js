@@ -24,14 +24,14 @@ try {
   });
 
   app.get("/", (req, res) => {
-    return res.json("Unnoficial Disneyland planning API");
+    return res.json("Unoficial Disneyland planning API");
   });
 
   // routes that don't require x-access-token
   app.use("/disney", disney({ express }));
 
   app.listen(8080, "0.0.0.0");
-  console.log("App is running on port " + 8080);
+  console.log("App is running on port 8080");
 } catch (error) {
   console.log(error);
   process.exit(1);
