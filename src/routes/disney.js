@@ -3,7 +3,7 @@ module.exports = ({ express }) => {
   const Themeparks = require("themeparks");
   Themeparks.Settings.DefaultCacheLength = 5;
   Themeparks.Settings.CacheOpeningTimesLength = 5;
-  const DisneyWorldMagicKingdom = new Themeparks.Parks.WaltDisneyWorldMagicKingdom();
+  const Disneyland = new Themeparks.Parks.DisneylandResortMagicKingdom();
 
   /**
    * @api {get} /wait-times Wait Times
@@ -13,10 +13,10 @@ module.exports = ({ express }) => {
   routes.get("/wait-times", async (req, res) => {
     try {
       console.log("requesting");
-      console.log({ DisneyWorldMagicKingdom });
+      console.log({ Disneyland });
       console.log("-- get wait time --");
-      console.log(DisneyWorldMagicKingdom.GetWaitTimes);
-      const rideTimes = await DisneyWorldMagicKingdom.GetWaitTimes();
+      console.log(Disneyland.GetWaitTimes);
+      const rideTimes = await Disneyland.GetWaitTimes();
       console.log({ rideTimes });
       return res.json(rideTimes);
     } catch (e) {
