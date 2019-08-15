@@ -27,6 +27,16 @@ try {
     return res.json("Unofficial Disneyland planning API");
   });
 
+  /**
+   * @api {get} /test test
+   * @apiDescription test
+   * @apiGroup Disneyland
+   */
+  app.get("/test", (req, res) => {
+    console.log("request recieved");
+    return res.send("working");
+  });
+
   // routes that don't require x-access-token
   app.use("/disney", disney);
 

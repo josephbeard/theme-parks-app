@@ -10,8 +10,8 @@ console.log(Themeparks.Settings);
 const DisneylandResortMagicKingdom = new Themeparks.Parks.DisneylandResortMagicKingdom();
 
 /**
- * @api {get} /wait-times Wait Times
- * @apiDescription Get ride wait times.
+ * @api {get} /test test
+ * @apiDescription test
  * @apiGroup Disneyland
  */
 router.get("/test", (req, res) => {
