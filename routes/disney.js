@@ -3,8 +3,8 @@ const router = express.Router();
 
 const Themeparks = require("themeparks");
 
-const DisneylandResortMagicKingdom = new Themeparks.Parks.DisneylandResortMagicKingdom();
-
+const Disneyland = new Themeparks.Parks.DisneylandResortMagicKingdom();
+const CaliforniaAdventure = new Themeparks.Parks.DisneylandResortCaliforniaAdventure();
 /**
  * @api {get} /test test
  * @apiDescription test
@@ -20,17 +20,16 @@ router.get("/test", (req, res) => {
  * @apiDescription Get park opening times.
  * @apiGroup Disneyland
  */
-router.get("/opening-times", (req, res) => {
-  console.log("request recieved");
-  DisneylandResortMagicKingdom.GetOpeningTimes()
-    .then(openingTimes => {
-      console.log("opening times found");
-      return res.json(openingTimes);
-    })
-    .catch(error => {
-      console.error(error);
-      return res.status(500).send("error");
-    });
+router.get("/opening-times", async (req, res) => {
+  try {
+    console.log("request recieved");
+    const openingTimes = await DisneylandResortMagicKingdom.GetOpeningTimes();
+    console.log("opening times found");
+    return res.json(openingTimes);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send("error");
+  }
 });
 
 /**
@@ -40,10 +39,6 @@ router.get("/opening-times", (req, res) => {
  */
 router.get("/wait-times", (req, res) => {
   console.log("request recieved");
-  console.log(Themeparks.Settings);
-  Themeparks.Settings.CacheWaitTimesLength = 1;
-  Themeparks.Settings.DefaultCacheLength = 1;
-  console.log(Themeparks.Settings);
   DisneylandResortMagicKingdom.GetWaitTimes()
     .then(rideTimes => {
       console.log("ride times found");
