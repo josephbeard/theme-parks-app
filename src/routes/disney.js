@@ -14,7 +14,8 @@ module.exports = ({ express }) => {
     try {
       console.log("requesting");
       console.log({ DisneylandResortMagicKingdom });
-      console.log({ DisneylandResortMagicKingdom.GetWaitTime });
+      console.log("-- get wait time --");
+      console.log(DisneylandResortMagicKingdom.GetWaitTime);
       const rideTimes = await DisneylandResortMagicKingdom.GetWaitTimes();
       console.log({ rideTimes });
       return res.json(rideTimes);
