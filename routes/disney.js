@@ -23,7 +23,7 @@ router.get("/test", (req, res) => {
 router.get("/opening-times", async (req, res) => {
   try {
     console.log("request recieved");
-    const openingTimes = await DisneylandResortMagicKingdom.GetOpeningTimes();
+    const openingTimes = await Disneyland.GetOpeningTimes();
     console.log("opening times found");
     return res.json(openingTimes);
   } catch (error) {
